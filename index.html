@@ -2,43 +2,80 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Frontend Mentor | E-commerce product page</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Kumbh+Sans:400,700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <header class="navbar">
+    <div class="navbar-left">
+      <img src="./images/logo.svg" alt="Sneakers logo" class="logo">
+      <nav>
+        <ul>
+          <li><a href="#">Collections</a></li>
+          <li><a href="#">Men</a></li>
+          <li><a href="#">Women</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="navbar-right">
+      <button id="cart-btn" class="cart-btn">
+        <img src="./images/icon-cart.svg" alt="Cart">
+        <span id="cart-count" class="cart-count" hidden>0</span>
+      </button>
+      <img src="./images/image-avatar.png" alt="User avatar" class="avatar">
+    </div>
+  </header>
+  <hr class="divider">
 
-  Collections
-  Men
-  Women
-  About
-  Contact
+  <main class="container">
+    <section class="gallery">
+      <div class="main-image">
+        <img id="product-main-img" src="./images/image-product-1.jpg" alt="Product image">
+      </div>
+      <div class="thumbnails">
+        <img class="thumb selected" src="./images/image-product-1-thumbnail.jpg" data-img="./images/image-product-1.jpg" alt="Thumbnail 1">
+        <img class="thumb" src="./images/image-product-2-thumbnail.jpg" data-img="./images/image-product-2.jpg" alt="Thumbnail 2">
+        <img class="thumb" src="./images/image-product-3-thumbnail.jpg" data-img="./images/image-product-3.jpg" alt="Thumbnail 3">
+        <img class="thumb" src="./images/image-product-4-thumbnail.jpg" data-img="./images/image-product-4.jpg" alt="Thumbnail 4">
+      </div>
+    </section>
+    <section class="product-details">
+      <h2 class="company">SNEAKER COMPANY</h2>
+      <h1 class="title">Fall Limited Edition Sneakers</h1>
+      <p class="desc">
+        These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.
+      </p>
+      <div class="price-row">
+        <span class="price">$125.00</span>
+        <span class="discount">50%</span>
+      </div>
+      <div class="old-price">$250.00</div>
+      <div class="cart-controls">
+        <div class="quantity">
+          <button id="minus-btn" aria-label="Decrease quantity"><img src="./images/icon-minus.svg" alt="-"></button>
+          <span id="quantity-value">0</span>
+          <button id="plus-btn" aria-label="Increase quantity"><img src="./images/icon-plus.svg" alt="+"></button>
+        </div>
+        <button id="add-to-cart" class="add-to-cart">
+          <img src="./images/icon-cart.svg" alt="Cart">
+          Add to cart
+        </button>
+      </div>
+    </section>
+  </main>
 
-  Sneaker Company
-
-  Fall Limited Edition Sneakers
-
-  These low-profile sneakers are your perfect casual wear companion. Featuring a 
-  durable rubber outer sole, they’ll withstand everything the weather can offer.
-
-  $125.00
-  50%
-  $250.00
-
-  0
-  Add to cart
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+  <div id="cart-modal" class="cart-modal" hidden>
+    <h3>Cart</h3>
+    <div id="cart-content" class="cart-content empty">
+      <p>Your cart is empty.</p>
+    </div>
   </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
