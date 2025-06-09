@@ -11,8 +11,16 @@
 <body>
   <header class="navbar">
     <div class="navbar-left">
+      <!-- Hamburger menu button -->
+      <button id="hamburger-btn" class="hamburger-btn" aria-label="Open menu" hidden>
+        <img src="./images/icon-menu.svg" alt="Menu" />
+      </button>
       <img src="./images/logo.svg" alt="Sneakers logo" class="logo">
-      <nav>
+      <!-- Mobile navigation drawer -->
+      <nav id="mobile-nav" class="mobile-nav" hidden>
+        <button id="close-nav" class="close-nav" aria-label="Close menu">
+          <img src="./images/icon-close.svg" alt="Close" />
+        </button>
         <ul>
           <li><a href="#">Collections</a></li>
           <li><a href="#">Men</a></li>
@@ -35,7 +43,16 @@
   <main class="container">
     <section class="gallery">
       <div class="main-image">
-        <img id="product-main-img" src="./images/image-product-1.jpg" alt="Product image">
+        <!-- Carousel left arrow -->
+        <button class="carousel-arrow left" id="carousel-prev" aria-label="Previous">
+          <img src="./images/icon-previous.svg" alt="Previous" />
+        </button>
+        <!-- Main product image -->
+        <img id="product-main-img" src="./images/image-product-1.jpg" alt="Product image" style="cursor:pointer;">
+        <!-- Carousel right arrow -->
+        <button class="carousel-arrow right" id="carousel-next" aria-label="Next">
+          <img src="./images/icon-next.svg" alt="Next" />
+        </button>
       </div>
       <div class="thumbnails">
         <img class="thumb selected" src="./images/image-product-1-thumbnail.jpg" data-img="./images/image-product-1.jpg" alt="Thumbnail 1">
@@ -76,6 +93,29 @@
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="script.js">
+  </script>
+    <!-- Lightbox Modal -->
+  <div id="lightbox-modal" class="lightbox-modal" hidden>
+    <div class="lightbox-overlay"></div>
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightbox-close" aria-label="Close" onclick="closeLightbox()">
+        <img src="./images/icon-close.svg" alt="Close" />
+      </button>
+      <button class="lightbox-prev" id="lightbox-prev" aria-label="Previous" onclick="prevImage()">
+        <img src="./images/icon-previous.svg" alt="Previous" />
+      </button>
+      <img id="lightbox-main-img" class="lightbox-main-img" src="./images/image-product-1.jpg" alt="Product large" />
+      <button class="lightbox-next" id="lightbox-next" aria-label="Next" onclick="nextImage()">
+        <img src="./images/icon-next.svg" alt="Next" />
+      </button>
+      <div class="lightbox-thumbnails">
+        <img class="lightbox-thumb selected" src="./images/image-product-1-thumbnail.jpg" data-img="./images/image-product-1.jpg" alt="Thumbnail 1">
+        <img class="lightbox-thumb" src="./images/image-product-2-thumbnail.jpg" data-img="./images/image-product-2.jpg" alt="Thumbnail 2">
+        <img class="lightbox-thumb" src="./images/image-product-3-thumbnail.jpg" data-img="./images/image-product-3.jpg" alt="Thumbnail 3">
+        <img class="lightbox-thumb" src="./images/image-product-4-thumbnail.jpg" data-img="./images/image-product-4.jpg" alt="Thumbnail 4">
+      </div>
+    </div>
+  </div>
 </body>
 </html>

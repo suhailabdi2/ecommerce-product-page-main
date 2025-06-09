@@ -87,3 +87,96 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+// Lightbox functionality
+const lightboxModal = document.getElementById('lightbox-modal');
+const lightboxMainImg = document.getElementById('lightbox-main-img');
+const lightboxThumbs = document.querySelectorAll('.lightbox-thumb');
+const lightboxClose = document.getElementById('lightbox-close');
+const lightboxPrev = document.getElementById('lightbox-prev');
+const lightboxNext = document.getElementById('lightbox-next');
+
+const galleryThumbs = document.querySelectorAll('.thumb');
+const mainImgEl = document.getElementById('product-main-img');
+
+let currentIndex = 0;
+const lightboxImages = [
+  './images/image-product-1.jpg',
+  './images/image-product-2.jpg',
+  './images/image-product-3.jpg',
+  './images/image-product-4.jpg'
+];
+
+// Open lightbox when main image is clicked (desktop only)
+mainImgEl.addEventListener('click', () => {
+  if (window.innerWidth > 700) {
+    lightboxModal.hidden = false;
+    setLightboxImage(currentIndex);
+  }
+});
+
+// Set lightbox image and highlight thumb
+function setLightboxImage(idx) {
+  currentIndex = idx;
+  lightboxMainImg.src = lightboxImages[currentIndex];
+  lightboxThumbs.forEach((thumb, i) => {
+    thumb.classList.toggle('selected', i === currentIndex);
+  });
+}
+
+// Lightbox thumbnail click
+lightboxThumbs.forEach((thumb, idx) => {
+  thumb.addEventListener('click', () => {
+    setLightboxImage(idx);
+  });
+});
+
+// Prev/Next buttons
+lightboxPrev.addEventListener('click', () => {
+  setLightboxImage((currentIndex - 1 + lightboxImages.length) % lightboxImages.length);
+});
+lightboxNext.addEventListener('click', () => {
+  setLightboxImage((currentIndex + 1) % lightboxImages.length);
+});
+
+// Close button and overlay
+lightboxClose.addEventListener('click', () => {
+  lightboxModal.hidden = true;
+});
+lightboxModal.querySelector('.lightbox-overlay').addEventListener('click', () => {
+  lightboxModal.hidden = true;
+});
+
+// Sync lightbox with main gallery thumbs
+galleryThumbs.forEach((thumb, idx) => {
+  thumb.addEventListener('click', () => {
+    currentIndex = idx;
+  });
+});
+
+// Keyboard navigation for lightbox
+document.addEventListener('keydown', (e) => {
+  if (lightboxModal.hidden) return;
+  if (e.key === 'ArrowLeft') {
+    setLightboxImage((currentIndex - 1 + lightboxImages.length) % lightboxImages.length);
+  }
+  if (e.key === 'ArrowRight') {
+    setLightboxImage((currentIndex + 1) % lightboxImages.length);
+  }
+  if (e.key === 'Escape') {
+    lightboxModal.hidden = true;
+  }
+});
+function prevImage() {
+  setLightboxImage((currentIndex - 1 + lightboxImages.length) % lightboxImages.length);
+}
+function nextImage() {
+  setLightboxImage((currentIndex + 1) % lightboxImages.length);
+}
+function openLightbox() {
+  if (window.innerWidth > 700) {
+    document.getElementById('lightbox-modal').hidden = false;
+  }
+}
+function closeLightbox() {
+  document.getElementById('lightbox-modal').hidden = true;
+}
