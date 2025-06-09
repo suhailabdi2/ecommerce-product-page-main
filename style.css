@@ -290,6 +290,7 @@ nav a:focus {
   filter: brightness(0) invert(1);
 }
 
+/* Cart Modal Styles */
 .cart-modal {
   position: absolute;
   top: 90px;
@@ -297,7 +298,7 @@ nav a:focus {
   width: 360px;
   background: var(--white);
   border-radius: 12px;
-  box-shadow: 0 20px 50px -20px var(--black-75);
+  box-shadow: 0 20px 50px -20px rgba(0,0,0,0.15);
   padding: 1.5rem;
   z-index: 100;
   display: flex;
@@ -307,6 +308,89 @@ nav a:focus {
 .cart-modal[hidden] {
   display: none !important;
 }
+.cart-modal h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.cart-content {
+  padding: 0;
+}
+
+.cart-content .cart-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--light-grayish-blue);
+}
+
+.cart-content .cart-item img {
+  width: 50px;
+  border-radius: 8px;
+}
+
+.cart-content .cart-item-details {
+  flex: 1;
+  font-size: 1rem;
+  color: var(--dark-grayish-blue);
+}
+
+.cart-content .cart-item-details span {
+  display: block;
+}
+
+.cart-content .cart-item-details .cart-price {
+  color: var(--dark-grayish-blue);
+  font-size: 1rem;
+}
+
+.cart-content .cart-item-details .cart-total {
+  font-weight: 700;
+  color: var(--very-dark-blue);
+  font-size: 1.1rem;
+}
+
+.cart-content .cart-delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.2em;
+  display: flex;
+  align-items: center;
+  transition: filter 0.2s;
+}
+.cart-content .cart-delete img {
+  width: 18px;
+  filter: grayscale(1) brightness(0.5);
+  transition: filter 0.2s;
+}
+.cart-content .cart-delete:hover img,
+.cart-content .cart-delete:focus img {
+  filter: none;
+}
+
+.cart-content .checkout-btn {
+  width: 100%;
+  background: var(--orange);
+  color: var(--white);
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 1.1em 0;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 8px 24px -8px var(--orange);
+  letter-spacing: 0.01em;
+}
+.cart-content .checkout-btn:hover,
+.cart-content .checkout-btn:focus {
+  background: hsl(26, 100%, 60%);
+}
+
 /* Lightbox Modal */
 .lightbox-modal {
   position: fixed;
@@ -562,8 +646,9 @@ nav a:focus {
     width: 100vw;
     min-width: 0;
     border-radius: 0 0 18px 18px;
-    top: 70px;
+    top: 60px;
     padding: 1.2rem;
+    box-shadow: 0 8px 32px -8px rgba(0,0,0,0.18);
   }
 }
 /* Responsive adjustments */

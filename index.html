@@ -31,7 +31,7 @@
       </nav>
     </div>
     <div class="navbar-right">
-      <button id="cart-btn" class="cart-btn">
+      <button id="cart-btn" class="cart-btn" >
         <img src="./images/icon-cart.svg" alt="Cart">
         <span id="cart-count" class="cart-count" hidden>0</span>
       </button>
@@ -48,24 +48,21 @@
           <img src="./images/icon-previous.svg" alt="Previous" />
         </button>
         <!-- Main product image -->
-        <img id="product-main-img" src="./images/image-product-1.jpg" alt="Product image" style="cursor:pointer;">
+        <img id="product-main-img" onclick="" src="./images/image-product-1.jpg" alt="Product image" style="cursor:pointer;">
         <!-- Carousel right arrow -->
         <button class="carousel-arrow right" id="carousel-next" aria-label="Next">
           <img src="./images/icon-next.svg" alt="Next" />
         </button>
       </div>
-      <div class="thumbnails">
-        <img class="thumb selected" src="./images/image-product-1-thumbnail.jpg" data-img="./images/image-product-1.jpg" alt="Thumbnail 1">
-        <img class="thumb" src="./images/image-product-2-thumbnail.jpg" data-img="./images/image-product-2.jpg" alt="Thumbnail 2">
-        <img class="thumb" src="./images/image-product-3-thumbnail.jpg" data-img="./images/image-product-3.jpg" alt="Thumbnail 3">
-        <img class="thumb" src="./images/image-product-4-thumbnail.jpg" data-img="./images/image-product-4.jpg" alt="Thumbnail 4">
+      <div class="thumbnails" id="main-thumbnails">
+        <!-- Thumbnails will be generated dynamically -->
       </div>
     </section>
     <section class="product-details">
       <h2 class="company">SNEAKER COMPANY</h2>
       <h1 class="title">Fall Limited Edition Sneakers</h1>
       <p class="desc">
-        These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.
+        These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer.
       </p>
       <div class="price-row">
         <span class="price">$125.00</span>
@@ -86,7 +83,7 @@
     </section>
   </main>
 
-  <div id="cart-modal" class="cart-modal" hidden>
+  <div id="cart-modal" class="cart-modal" hidden >
     <h3>Cart</h3>
     <div id="cart-content" class="cart-content empty">
       <p>Your cart is empty.</p>
@@ -109,11 +106,8 @@
       <button class="lightbox-next" id="lightbox-next" aria-label="Next" onclick="nextImage()">
         <img src="./images/icon-next.svg" alt="Next" />
       </button>
-      <div class="lightbox-thumbnails">
-        <img class="lightbox-thumb selected" src="./images/image-product-1-thumbnail.jpg" data-img="./images/image-product-1.jpg" alt="Thumbnail 1">
-        <img class="lightbox-thumb" src="./images/image-product-2-thumbnail.jpg" data-img="./images/image-product-2.jpg" alt="Thumbnail 2">
-        <img class="lightbox-thumb" src="./images/image-product-3-thumbnail.jpg" data-img="./images/image-product-3.jpg" alt="Thumbnail 3">
-        <img class="lightbox-thumb" src="./images/image-product-4-thumbnail.jpg" data-img="./images/image-product-4.jpg" alt="Thumbnail 4">
+      <div class="lightbox-thumbnails" id="lightbox-thumbnails">
+        <!-- Thumbnails will be generated dynamically -->
       </div>
     </div>
   </div>
